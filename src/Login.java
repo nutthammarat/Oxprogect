@@ -4,22 +4,16 @@
  * and open the template in the editor.
  */
 
-
-
-
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author GGG
  */
 public class Login extends javax.swing.JFrame {
-    
-    
+
     /**
      * Creates new form login
      */
-    public Login() {     
+    public Login() {
         initComponents();
         usernamefield.setText("admin");
         passwordfield.setText("123456");
@@ -116,30 +110,9 @@ public class Login extends javax.swing.JFrame {
 
     private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
         // TODO add your handling code here:
-        if(Loginservice.checkUserandPasslegnth(usernamefield.getText(),passwordfield.getText())){
-            if(Loginservice.checkUserexists(usernamefield.getText())){
-                if(Loginservice.checkPasscorrect(usernamefield.getText(),passwordfield.getText())){
-                    Loginservice.gotoLobby(usernamefield.getText());
-                    ProfileDB.getNickname(usernamefield.getText());
-                    Lobby.testfield.setText(usernamefield.getText());
-                    setVisible(false);
-                    
-                }else{
-                    JOptionPane.showMessageDialog(null, "Password isn't valid plaese again");
-                    passwordfield.setText(null);
-                }
-                
-            }else{
-                JOptionPane.showMessageDialog(null, "Username isn't valid plaese again");
-                usernamefield.setText(null);
-                passwordfield.setText(null);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Username or Password is short! pls try again");
-            usernamefield.setText(null);
-            passwordfield.setText(null);
-        }
-        
+
+        Loginservice.Loginservice(usernamefield.getText(), passwordfield.getText());
+        setVisible(false);
     }//GEN-LAST:event_loginbuttonActionPerformed
 
     private void registerbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerbuttonActionPerformed
@@ -185,9 +158,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -196,8 +167,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton loginbutton;
-    public javax.swing.JPasswordField passwordfield;
+    public static javax.swing.JPasswordField passwordfield;
     private javax.swing.JButton registerbutton;
-    public javax.swing.JTextField usernamefield;
+    public static javax.swing.JTextField usernamefield;
     // End of variables declaration//GEN-END:variables
 }

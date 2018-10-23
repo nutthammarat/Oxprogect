@@ -1,15 +1,25 @@
-
-public class UserDetail {
+import java.util.*;
+public class User {
     private String username;
     private String password;
     private String nickname;
     private int scorewin;
     private int scorelose;
     private int scoredraw;
+    ArrayList<User> user;
 
     /**
      * @return the username
      */
+    public ArrayList<User> getAll(String username ,String password,String nickname,int scorewin,int scorelose,int scoredraw){
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.scorewin = scorewin;
+        this.scoredraw = scoredraw;
+        this.scorelose = scorelose;
+        return user;
+    }
     public String getUsername() {
         return username;
     }
@@ -17,7 +27,7 @@ public class UserDetail {
     /**
      * @param username the username to set
      */
-    public void setUsername(String username) {
+    public  void setUsername(String username) {
         this.username = username;
     }
 

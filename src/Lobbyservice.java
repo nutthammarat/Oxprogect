@@ -8,7 +8,7 @@ public class Lobbyservice {
     public static void showList(JList<String>listname,JList<String>listunit){
         DefaultListModel model1 = new DefaultListModel();
         DefaultListModel model2 = new DefaultListModel();
-        List<Document> list = LobbyDB.getRoom();
+        List<Document> list = LobbyDao.getRoom();
         for(int i = 0 ; i<list.size() ; i++){
             model1.addElement(list.get(i).get("name"));
             model2.addElement("("+list.get(i).get("units")+"/2)");

@@ -13,7 +13,7 @@ import org.bson.Document;
  *
  * @author GGG
  */
-public class LoginDB {
+public class LoginDao {
    static MongoClientURI uri = new MongoClientURI("mongodb://admin:password1@ds135866.mlab.com:35866/oxproject");
    static MongoClient client = new MongoClient(uri);
    static MongoDatabase db = client.getDatabase(uri.getDatabase());

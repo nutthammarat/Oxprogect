@@ -19,7 +19,7 @@ public class Lobby extends javax.swing.JFrame {
      */
     public Lobby() {
         initComponents();
-        LobbyDB db1 = new LobbyDB();
+        LobbyDao db1 = new LobbyDao();
         Lobbyservice.showList(listname, listunit);
      }
 

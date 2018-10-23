@@ -8,7 +8,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 
-public class RegisterDB {
+public class RegisterDao {
     static MongoClientURI uri = new MongoClientURI("mongodb://admin:password1@ds135866.mlab.com:35866/oxproject");
     static MongoClient client = new MongoClient(uri);
     static MongoDatabase db = client.getDatabase(uri.getDatabase());
@@ -18,7 +18,7 @@ public class RegisterDB {
     public static boolean checkUserExists(String username){
         Document findQuery = new Document("user",username);
         MongoCursor<Document> cursor = col.find(findQuery).iterator();
-            if(cursor.hasNext()||username.length()<3)
+            if(cursor.hasNext())
                 return true;
            
             else

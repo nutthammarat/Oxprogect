@@ -7,12 +7,12 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
-    Object[] options = {"Login"};
+   
     public Register() {
         initComponents();
         usernamefield.setText("");
-        pwdfield.setText("");
-        cfpwdfield.setText("");
+        passfield.setText("");
+        confirmpassfield.setText("");
         nicknamefield.setText("");
         setLocationRelativeTo(null);
         
@@ -34,11 +34,11 @@ public class Register extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         nicknamefield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        pwdfield = new javax.swing.JPasswordField();
+        passfield = new javax.swing.JPasswordField();
         backbtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         registerbtn = new javax.swing.JButton();
-        cfpwdfield = new javax.swing.JPasswordField();
+        confirmpassfield = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,7 +88,7 @@ public class Register extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("Username   : ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
-        getContentPane().add(pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 190, 30));
+        getContentPane().add(passfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 190, 30));
 
         backbtn.setBackground(new java.awt.Color(0, 0, 0));
         backbtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,7 +123,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registerbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 90, 30));
-        getContentPane().add(cfpwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 190, 30));
+        getContentPane().add(confirmpassfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 190, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon("D:\\Netbean\\OXProjects\\src\\Image\\bg.png")); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
@@ -138,8 +138,8 @@ public class Register extends javax.swing.JFrame {
 
     private void clearbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearbtnActionPerformed
         usernamefield.setText("");
-        pwdfield.setText("");
-        cfpwdfield.setText("");
+        passfield.setText("");
+        confirmpassfield.setText("");
         nicknamefield.setText("");
     }//GEN-LAST:event_clearbtnActionPerformed
 
@@ -155,34 +155,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_backbtnActionPerformed
 
     private void registerbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerbtnActionPerformed
-       
-        if(!Registerservice.checkFieldnotnull(usernamefield.getText(), pwdfield.getPassword().toString(), nicknamefield.getText(),cfpwdfield.getPassword().toString())){
-            if(Registerservice.checkUserExist(usernamefield.getText())){
-                JOptionPane.showMessageDialog(null, "Username is exists or to short please fill again","Register Error",JOptionPane.ERROR_MESSAGE);
-                usernamefield.setText("");
-            }
-            if(Registerservice.checkNickname(nicknamefield.getText())||Registerservice.checkPass(pwdfield.getPassword().toString(), cfpwdfield.getPassword().toString())){
-                JOptionPane.showMessageDialog(null, "Please set Nickname more than 3 charactor "
-                        + "and check Password and comfirm Password to more than 6 number!","Register Error",JOptionPane.ERROR_MESSAGE);
-                nicknamefield.setText("");
-                cfpwdfield.setText("");
-            }
-            else if(!Registerservice.checkUserExist(usernamefield.getText())){
-                
-                Registerservice.addUsers(usernamefield.getText(), pwdfield.getText(), nicknamefield.getText());
-                int input = JOptionPane.showOptionDialog(null, "Welcome, " + Registerservice.getnickname(nicknamefield.getText()),"Register Success",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
-                if(input == 0){
-                    Login log = new Login();
-                    visible();
-                    log.setVisible(true);
-                }
-
-            }
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Please fill all of information");
-        }
+       Registerservice.Registerservice(usernamefield.getText(), passfield.getText(), confirmpassfield.getText(), nicknamefield.getText());
+       setVisible(false);
 
     }//GEN-LAST:event_registerbtnActionPerformed
 
@@ -230,17 +204,17 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backbtn;
-    public javax.swing.JPasswordField cfpwdfield;
     private javax.swing.JButton clearbtn;
+    public static javax.swing.JPasswordField confirmpassfield;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    public javax.swing.JTextField nicknamefield;
-    public javax.swing.JPasswordField pwdfield;
+    public static javax.swing.JTextField nicknamefield;
+    public static javax.swing.JPasswordField passfield;
     private javax.swing.JButton registerbtn;
-    public javax.swing.JTextField usernamefield;
+    public static javax.swing.JTextField usernamefield;
     // End of variables declaration//GEN-END:variables
 }

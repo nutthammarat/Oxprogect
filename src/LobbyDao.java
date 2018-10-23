@@ -6,7 +6,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.*;
 import java.util.*;
 
-public class LobbyDB {
+public class LobbyDao {
 
     static MongoClientURI uri = new MongoClientURI("mongodb://admin:password1@ds135866.mlab.com:35866/oxproject");
     static MongoClient client = new MongoClient(uri);

@@ -21,7 +21,7 @@ public class LobbyTest {
     @Test
     public void joinRoom(){
        List<Document> list = new ArrayList<>();
-        LobbyDB db = new LobbyDB();
+        LobbyDao db = new LobbyDao();
         if(db.joinRoom("Test"))
             System.out.println("You can Join this Room");
         else
@@ -30,8 +30,8 @@ public class LobbyTest {
     @Test
     public void showRoom(){
         List<Document> list = new ArrayList<>();
-        LobbyDB db = new LobbyDB();
-        list = LobbyDB.getRoom();
+        LobbyDao db = new LobbyDao();
+        list = LobbyDao.getRoom();
         //showroom
         for(int i = 0 ; i<list.size() ; i++) {
             System.out.println(list.get(i).get("_id") + " " +list.get(i).get("name") + "\n" + list.get(i).get("units"));
@@ -42,7 +42,7 @@ public class LobbyTest {
        /* JList<String> listname=null;
         JList<String> listunit=null;
         List<Document> list = new ArrayList<>();
-        LobbyDB.createRoom("Wait");
+        LobbyDao.createRoom("Wait");
         list = Lobbyservice.showList(listname, listunit);
         //showroom
         for (int i = 0; i < list.size(); i++) {
