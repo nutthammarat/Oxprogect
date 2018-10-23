@@ -173,7 +173,7 @@ public class Lobby extends javax.swing.JFrame {
 
     private void leaderboardbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderboardbtnActionPerformed
         // TODO add your handling code here:
-        LeaderBoard lboard = new  LeaderBoard();
+        LeaderBoardGUI lboard = new  LeaderBoardGUI();
         lboard.show();
         
         

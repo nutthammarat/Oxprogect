@@ -54,7 +54,7 @@ public class LeaderBoardDB {
         scorewin.setModel(model2);
         scoredraw.setModel(model3);
         scorelose.setModel(model4);
-        LeaderBoard.indexs.setModel(model5);
+       // LeaderBoardGUI.indexs.setModel(model5);
         
    }
     
